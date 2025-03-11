@@ -14,13 +14,13 @@ function App() {
         
         {/* Add links to navigate between Login and Signup */}
         <nav className="nav-links">
-          <Link to="/signup">Signup</Link> | <Link to="/login">Login</Link> | <Link to="/upload">Upload</Link> | <Link to="/">Home</Link>
+          <Link to="/signup">Signup</Link> | <Link to="/">Login</Link> | <Link to="/upload">Upload</Link> | <Link to="/homepage">Home</Link>
         </nav>
         <Routes>
           {/* Define routes for Signup and Login */}
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/homepage" element={<Homepage />} />
           <Route path="/upload" element={<Upload />} /> 
         </Routes>
       </div>

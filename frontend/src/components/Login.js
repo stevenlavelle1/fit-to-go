@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 
 const Login = () => {
   const [user, setUser] = useState({
     email: "",
     password: ""
   });
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -22,6 +24,9 @@ const Login = () => {
       localStorage.setItem("token", response.data.token); // Save token for future requests
       localStorage.setItem("userId", response.data.userId); // Save user ID if needed
       console.log("Login successful, token:", response.data.token); // Optionally, redirect to homepage
+
+      // Navigate to the homepage after successful login
+      navigate("/"); // Adjust this if your homepage route is different
     } catch (error) {
       alert(error.response?.data?.message || "Login failed. Please check your credentials.");
     }

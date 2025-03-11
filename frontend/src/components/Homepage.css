@@ -1,0 +1,72 @@
+.homePage {
+    padding: 20px;
+    text-align: center;
+    background-color: #121212;
+    min-height: 100vh;
+    color: white;
+}
+
+.categories {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    gap: 10px;
+    justify-content: center;
+    background-color: #1e1e1e;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.categoryButton {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.categoryButton:hover {
+    background-color: #444;
+}
+
+.categoryButton.active {
+    background-color: #851b80; 
+    color: white;
+}
+
+.workoutPlans {
+    margin-top: 80px; 
+    text-align: left;
+    padding: 20px;
+}
+
+.workoutPlans h3 {
+    font-size: 24px;
+}
+
+.workoutPlans ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.workoutPlans li {
+    padding: 8px;
+    background-color: #333;
+    margin: 5px 0;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.workoutPlans li:hover {
+    background-color: #444;
+}

@@ -9,6 +9,13 @@
   padding: 20px;
   background-color: #121212; /* Light background for the whole app */
 }
+body {
+  background-color: #2f3136;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
 /* Style the title */
 h1 {
@@ -47,7 +54,7 @@ input {
 /* Style for the submit button */
 button {
   padding: 12px 25px;
-  background-color: #7289da; /* Discord-like blue */
+  background-color: #851b80; /* Discord-like blue */
   color: white;
   border: none;
   border-radius: 5px;
@@ -60,7 +67,7 @@ button {
 
 /* Hover effect for the button */
 button:hover {
-  background-color: #5d74b2; /* Darker blue on hover */
+  background-color: #851b80; /* Darker blue on hover */
   transform: scale(1.05); /* Slight scale effect */
 }
 
@@ -75,7 +82,7 @@ button:hover {
 /* Style for the link buttons */
 .nav-button {
   padding: 12px 25px;
-  background-color: #7289da; /* Discord-like blue */
+  background-color: #851b80; /* Discord-like blue */
   color: white;
   text-decoration: none; /* Remove underline */
   border-radius: 5px;
@@ -85,7 +92,7 @@ button:hover {
 
 /* Hover effect for the button links */
 .nav-button:hover {
-  background-color: #5d74b2; /* Darker blue on hover */
+  background-color: #851b80; /* Darker blue on hover */
   transform: scale(1.05); /* Slight scale effect */
 }
 
@@ -94,4 +101,49 @@ button:hover {
   color: #aaa;
   font-size: 18px;
   padding: 0 10px;
+}
+.header {
+  width: 100%;
+  background-color: #36393f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.header .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.header .nav-links a:hover {
+  color: #c216bc;
+};
+
+/* Signout Button */
+.header .sign-out button {
+  background-color: #851b80;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.header .sign-out button:hover {
+  background-color: #c216bc;
 }

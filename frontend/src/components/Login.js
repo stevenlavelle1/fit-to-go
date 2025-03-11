@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const [user, setUser] = useState({
     email: "",
     password: ""
   });
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -18,17 +18,18 @@ const Login = () => {
     try {
       const response = await axios.post("http://localhost:5000/api/auth/login", user);
       if (response.data.message) {
-        alert(response.data.message); // Show login message from backend
+        alert(response.data.message);
       }
-      // Store token in localStorage or sessionStorage
-      localStorage.setItem("token", response.data.token); // Save token for future requests
-      localStorage.setItem("userId", response.data.userId); // Save user ID if needed
-      console.log("Login successful, token:", response.data.token); // Optionally, redirect to homepage
-
-      // Navigate to the homepage after successful login
-      navigate("/"); // Adjust this if your homepage route is different
+      // Store token and userId in localStorage for session management
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userId", response.data.userId);
+      console.log("Login successful, token:", response.data.token);
+      // Redirect to homepage after login
+      navigate("/homepage");
     } catch (error) {
-      alert(error.response?.data?.message || "Login failed. Please check your credentials.");
+      alert(
+        error.response?.data?.message || "Login failed. Please check your credentials."
+      );
     }
   };
 
@@ -52,6 +53,9 @@ const Login = () => {
         />
         <button type="submit">Login</button>
       </form>
+      <p>
+        Don't have an account? <Link to="/signup">Sign up</Link>
+      </p>
     </div>
   );
 };

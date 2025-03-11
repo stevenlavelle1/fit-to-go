@@ -1,27 +1,96 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { 
+  BrowserRouter as Router, 
+  Routes, 
+  Route, 
+  Navigate, 
+  useLocation, 
+  useNavigate 
+} from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Homepage from "./components/Homepage";
 import Upload from "./components/Upload";
 import "./App.css";
 
+// Header component with navigation links and Sign Out button on the top right
+const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+
+  // Only render Header if user is signed in
+  if (!token) return null;
+
+  const handleSignOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    navigate("/"); // Redirect to Login page
+  };
+
+  return (
+    <header className="header">
+      <nav className="nav-links">
+        <a href="/homepage">Home</a>
+        <a href="/upload">Upload</a>
+      </nav>
+      <div className="sign-out">
+        <button onClick={handleSignOut}>Sign Out</button>
+      </div>
+    </header>
+  );
+};
+
+// Protect routes that require authentication
+const ProtectedRoute = ({ children }) => {
+  const token = localStorage.getItem("token");
+  return token ? children : <Navigate to="/" replace />;
+};
+
+// Public routes (Login/Signup) that should not be accessible if logged in
+const PublicRoute = ({ children }) => {
+  const token = localStorage.getItem("token");
+  return token ? <Navigate to="/homepage" replace /> : children;
+};
+
 function App() {
   return (
     <Router>
+      <Header />
       <div className="App">
-        <h1>Welcome to the Workout App - Fit to Go</h1>
-        
-        {/* Add links to navigate between Login and Signup */}
-        <nav className="nav-links">
-          <Link to="/signup">Signup</Link> | <Link to="/">Login</Link> | <Link to="/upload">Upload</Link> | <Link to="/homepage">Home</Link>
-        </nav>
         <Routes>
-          {/* Define routes for Signup and Login */}
-          <Route path="/" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/homepage" element={<Homepage />} />
-          <Route path="/upload" element={<Upload />} /> 
+          <Route
+            path="/"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <PublicRoute>
+                <Signup />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/homepage"
+            element={
+              <ProtectedRoute>
+                <Homepage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/upload"
+            element={
+              <ProtectedRoute>
+                <Upload />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </div>
     </Router>

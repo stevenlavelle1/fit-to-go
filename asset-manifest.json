@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/fit-to-go/static/css/main.e2063ae3.css",
+    "main.js": "/fit-to-go/static/js/main.0e06ea3b.js",
+    "static/js/453.8ab44547.chunk.js": "/fit-to-go/static/js/453.8ab44547.chunk.js",
+    "index.html": "/fit-to-go/index.html",
+    "main.e2063ae3.css.map": "/fit-to-go/static/css/main.e2063ae3.css.map",
+    "main.0e06ea3b.js.map": "/fit-to-go/static/js/main.0e06ea3b.js.map",
+    "453.8ab44547.chunk.js.map": "/fit-to-go/static/js/453.8ab44547.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2063ae3.css",
+    "static/js/main.0e06ea3b.js"
+  ]
+}

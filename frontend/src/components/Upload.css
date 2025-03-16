@@ -1,0 +1,85 @@
+.uploadContainer {
+    text-align: center;
+    background-color: #121212;
+    color: white;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.uploadForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.uploadForm label {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.uploadForm input,
+.uploadForm select {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+}
+
+.exerciseRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.exerciseRow input {
+    width: 30%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+}
+
+.removeBtn {
+    background-color: #851b80;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.removeBtn:hover {
+    background-color: #a32aa8;
+}
+
+.addBtn, .submitBtn {
+    background-color: #851b80;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 90%;
+}
+
+.addBtn:hover, .submitBtn:hover {
+    background-color: #a32aa8;
+}

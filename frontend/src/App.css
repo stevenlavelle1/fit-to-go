@@ -1,0 +1,149 @@
+/* Center the entire app content */
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  text-align: center; /* Center all text */
+  padding: 20px;
+  background-color: #121212; /* Light background for the whole app */
+}
+body {
+  background-color: #2f3136;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the title */
+h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #333; /* Darker text color for contrast */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow for depth */
+}
+
+/* Style the Signup and Login form container */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Space between input fields */
+  max-width: 400px; /* Maximum width to keep the form within bounds */
+  width: 100%; /* Ensures it takes full width but doesn't exceed max-width */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow around the form */
+  box-sizing: border-box; /* Ensures padding and borders don't push the form outside the box */
+}
+
+/* Style for the form input fields */
+input {
+  width: 100%; /* Ensure inputs fit within form container */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5px 0; /* Add margin for spacing */
+  box-sizing: border-box; /* Ensures padding is included in the width calculation */
+}
+
+/* Style for the submit button */
+button {
+  padding: 12px 25px;
+  background-color: #851b80; /* Discord-like blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%; /* Ensure button takes the full width */
+  box-sizing: border-box; /* Ensures button fits within form container */
+}
+
+/* Hover effect for the button */
+button:hover {
+  background-color: #851b80; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight scale effect */
+}
+
+/* Style for the navigation links at the bottom */
+.nav-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Style for the link buttons */
+.nav-button {
+  padding: 12px 25px;
+  background-color: #851b80; /* Discord-like blue */
+  color: white;
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for the button links */
+.nav-button:hover {
+  background-color: #851b80; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight scale effect */
+}
+
+/* Divider between the buttons */
+.divider {
+  color: #aaa;
+  font-size: 18px;
+  padding: 0 10px;
+}
+.header {
+  width: 100%;
+  background-color: #36393f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.header .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.header .nav-links a:hover {
+  color: #c216bc;
+};
+
+/* Signout Button */
+.header .sign-out button {
+  background-color: #851b80;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.header .sign-out button:hover {
+  background-color: #c216bc;
+}

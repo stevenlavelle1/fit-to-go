@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://stevenlavelle1.github.io/fit-to-go/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
     "@testing-library/dom": "^10.4.0",

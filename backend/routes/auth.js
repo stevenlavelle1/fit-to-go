@@ -63,7 +63,6 @@ router.post("/reset-password", async (req, res) => {
         user.resetTokenExpiration = Date.now() + 15 * 60 * 1000;
         await user.save();
 
-        // Send email (Use a real SMTP service)
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }

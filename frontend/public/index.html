@@ -39,5 +39,10 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      if (window.location.pathname !== "/fit-to-go/" && !window.location.pathname.startsWith("/fit-to-go/")) {
+        window.location.replace("/fit-to-go/");
+      }
+    </script>    
   </body>
 </html>

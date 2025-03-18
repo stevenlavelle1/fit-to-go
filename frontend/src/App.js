@@ -58,7 +58,7 @@ const PublicRoute = ({ children }) => {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/fit-to-go">
       <Header />
       <div className="App">
         <Routes>

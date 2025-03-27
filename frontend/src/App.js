@@ -5,7 +5,8 @@ import {
   Route, 
   Navigate, 
   // useLocation, 
-  useNavigate 
+  useNavigate,
+  Link
 } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -34,8 +35,8 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="nav-links">
-        <a href="/homepage">Home</a>
-        <a href="/upload">Upload</a>
+        <Link to="/homepage">Home</Link>
+        <Link to="/upload">Upload</Link>
       </nav>
       <div className="sign-out">
         <button onClick={handleSignOut}>Sign Out</button>
@@ -47,6 +48,7 @@ const Header = () => {
 // Protect routes that require authentication
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
+  console.log("Token in ProtectedRoute:", token); 
   return token ? children : <Navigate to="/" replace />;
 };
 

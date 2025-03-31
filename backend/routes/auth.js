@@ -49,56 +49,5 @@ router.post("/login", async (req, res) => {
     }
 });
 
-// Reset Password Request
-router.post("/reset-password", async (req, res) => {
-    const { email } = req.body;
-
-    try {
-        const user = await User.findOne({ email });
-        if (!user) return res.status(400).json({ message: "User not found" });
-
-        const resetToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "15m" });
-
-        user.resetToken = resetToken;
-        user.resetTokenExpiration = Date.now() + 15 * 60 * 1000;
-        await user.save();
-
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS }
-        });
-
-        const mailOptions = {
-            to: user.email,
-            subject: "Password Reset",
-            text: `Click the link to reset your password: http://localhost:3000/reset-password/${resetToken}`
-        };
-
-        await transporter.sendMail(mailOptions);
-        res.json({ message: "Reset link sent to email" });
-    } catch (error) {
-        res.status(500).json({ message: "Error sending reset email" });
-    }
-});
-
-// Set New Password
-router.post("/new-password", async (req, res) => {
-    const { token, newPassword } = req.body;
-
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const user = await User.findById(decoded.id);
-        if (!user || user.resetToken !== token) return res.status(400).json({ message: "Invalid token" });
-
-        user.password = await bcrypt.hash(newPassword, 10);
-        user.resetToken = undefined;
-        user.resetTokenExpiration = undefined;
-        await user.save();
-
-        res.json({ message: "Password reset successful" });
-    } catch (error) {
-        res.status(500).json({ message: "Error resetting password" });
-    }
-});
 
 module.exports = router;

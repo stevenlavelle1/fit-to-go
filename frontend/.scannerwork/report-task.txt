@@ -1,0 +1,6 @@
+projectKey=SRN
+serverUrl=http://localhost:9000
+serverVersion=25.3.0.104237
+dashboardUrl=http://localhost:9000/dashboard?id=SRN
+ceTaskId=8ee7d728-21e7-4e1c-840d-9d992ce969cb
+ceTaskUrl=http://localhost:9000/api/ce/task?id=8ee7d728-21e7-4e1c-840d-9d992ce969cb
